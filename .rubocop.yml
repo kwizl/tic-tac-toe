@@ -1,9 +1,9 @@
 AllCops:
-    Exclude:
-      - "README.md"
-      - "Guardfile"
-      - "Rakefile"
-  
+  Exclude:
+    - "README.md"
+    - "Guardfile"
+    - "Rakefile"
+ 
     DisplayCopNames: true
   
   Layout/LineLength:
