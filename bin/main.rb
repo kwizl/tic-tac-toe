@@ -1,5 +1,5 @@
-require './player.rb'
-require './canvas.rb'
+require './lib/player.rb'
+require './lib/canvas.rb'
 
 # validate and print player choice
 class UserInterface
@@ -30,5 +30,14 @@ class UserInterface
 
   def player_wins(name)
     "#{name} wins"
+  end
+
+  def validate_player_choice(choice)
+    choice.to_i.positive? && choice.to_i < 10 ? true : false
+  end
+
+  def player_win_state(player_name)
+    @game_on = false
+    puts player_wins(player_name)
   end
 end
