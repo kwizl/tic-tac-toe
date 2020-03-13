@@ -40,4 +40,42 @@ class UserInterface
     @game_on = false
     puts player_wins(player_name)
   end
+
+  def player_win_cases(player_label)
+    win_a = (@arr[0][0] == player_label) && (@arr[0][1] == player_label) && (@arr[0][2] == player_label)
+    win_b = (@arr[1][0] == player_label) && (@arr[1][1] == player_label) && (@arr[1][2] == player_label)
+    win_c = (@arr[2][0] == player_label) && (@arr[2][1] == player_label) && (@arr[2][2] == player_label)
+    win_d = (@arr[0][0] == player_label) && (@arr[1][1] == player_label) && (@arr[2][2] == player_label)
+    win_e = (@arr[2][0] == player_label) && (@arr[1][1] == player_label) && (@arr[0][2] == player_label)
+    win_f = (@arr[0][0] == player_label) && (@arr[1][0] == player_label) && (@arr[2][0] == player_label)
+    win_g = (@arr[0][1] == player_label) && (@arr[1][1] == player_label) && (@arr[2][1] == player_label)
+    win_h = (@arr[0][2] == player_label) && (@arr[1][2] == player_label) && (@arr[2][2] == player_label)
+
+    win_a || win_b || win_c || win_d || win_e || win_f || win_g || win_h
+  end
+
+  def play_second
+    state_two = true
+    while state_two
+      print "#{@player_two.name} its your turn"
+      puts
+      @player_two.choice = gets.chomp
+      if validate_player_choice(@player_two.choice)
+        @arr.each do |i|
+          i.length.times do |x|
+            i[x] = Integer(@player_two.choice) == i[x] ? 'O' : i[x]
+          end
+        end
+
+        @arr.each do |i|
+          print i
+          puts
+        end
+        @count += 1
+        state_two = false
+      elsif !validate_player_choice(@player_two.choice)
+        puts 'Enter a valid number'
+      end
+    end
+  end
 end
