@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require './lib/player.rb'
 require './lib/canvas.rb'
 
@@ -29,7 +30,7 @@ class UserInterface
   end
 
   def player_wins(name)
-    "#{name} wins"
+    "#{name.capitalize} Has Won! Game Over"
   end
 
   def validate_player_choice(choice)
@@ -78,4 +79,54 @@ class UserInterface
       end
     end
   end
+
+  def canvas_rules
+    user_info
+    while @game_on
+      print "#{@player_one.name} its your turn"
+      puts
+
+      @player_one.choice = gets.chomp
+      if validate_player_choice(@player_one.choice)
+        @arr.each do |i|
+          i.length.times do |x|
+            i[x] = Integer(@player_one.choice) == i[x] ? 'X' : i[x]
+          end
+        end
+
+        if player_win_cases('X')
+          @arr.each do |i|
+            print i
+            puts
+          end
+          player_win_state(@player_one.name)
+          return
+        end
+
+        @arr.each do |i|
+          print i
+          puts
+        end
+        @count += 1
+      elsif !validate_player_choice(@player_one.choice)
+        puts 'Enter a valid number'
+        next
+      end
+
+      if @count == 9
+        @game_on = false
+        break
+      end
+
+      play_second
+      if player_win_cases('O')
+        player_win_state(@player_two.name)
+        return
+      end
+    end
+    puts 'Its a draw'
+  end
 end
+
+ui = UserInterface.new
+ui.canvas_rules
