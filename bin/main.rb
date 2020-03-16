@@ -5,7 +5,6 @@ require './lib/canvas.rb'
 # validate and print player choice
 class UserInterface
   def user_info
-    
     canvas = Canvas.new
     @arr = canvas.array_canvas
 
@@ -21,11 +20,10 @@ class UserInterface
     @player_one = Player.new
     @player_two = Player.new
 
-    
     print 'Enter name for Player One: '
     @player_one.name = gets.chomp
     @player_one.name = @player_one.name.capitalize
-    
+
     print 'Enter name for Player Two: '
     @player_two.name = gets.chomp
     @player_two.name = @player_two.name.capitalize
@@ -70,21 +68,24 @@ class UserInterface
         check_two = true
         @arr.each do |i|
           i.length.times do |x|
-            if i[x].class == String
-              check_two = false     
-            end
-            if Integer(@player_two.choice) == i[x]
-              i[x] = 'O'
-              check_two = true
-              break
-            end
+            # if i[x].class == String
+            #   check_two = false
+            # end
+            # if Integer(@player_two.choice) == i[x]
+            #   i[x] = 'O'
+            #   check_two = true
+            #   break
+            # end
+            check_two = false if i[x].class == String
+
+            i[x] = 'O' if Integer(@player_two.choice) == i[x]
+            check_two = true
+            next if Integer(@player_two.choice) == i[x]
           end
         end
 
-        if check_two == false
-          puts 'Number chosen'
-        end
-        
+        puts 'Number chosen' if check_two == false
+
         check_two == false ? next : true
 
         @arr.each do |i|
@@ -110,20 +111,15 @@ class UserInterface
         check = true
         @arr.each do |i|
           i.length.times do |x|
-            if i[x].class == String
-              check = false     
-            end
-            if Integer(@player_one.choice) == i[x]
-              i[x] = 'X'
-              check = true
-              break
-            end
+            check = false if i[x].class == String
+
+            i[x] = 'X' if Integer(@player_one.choice) == i[x]
+            check = true
+            next if Integer(@player_one.choice) == i[x]
           end
         end
 
-        if check == false
-          puts 'Number chosen'
-        end
+        puts 'Number chosen' if check == false
 
         check == false ? next : true
 
@@ -131,7 +127,7 @@ class UserInterface
           @arr.each do |i|
             print i
             puts
-         end
+          end
           player_win_state(@player_one.name)
           return
         end
