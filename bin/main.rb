@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require './lib/player.rb'
 require './lib/canvas.rb'
 
