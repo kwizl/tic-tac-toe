@@ -4,9 +4,11 @@ require './lib/canvas.rb'
 # validate and print player choice
 class UserInterface
   def user_info
-    puts 'Tic Tac Toe Game!'
+    
     canvas = Canvas.new
-    @arr = canvas.array_canvas = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    @arr = canvas.array_canvas
+
+    puts 'Tic Tac Toe Game!'
 
     puts
     puts 'Game Board'
@@ -18,18 +20,21 @@ class UserInterface
     @player_one = Player.new
     @player_two = Player.new
 
+    
     print 'Enter name for Player One: '
     @player_one.name = gets.chomp
-    puts
+    @player_one.name = @player_one.name.capitalize
+    
     print 'Enter name for Player Two: '
     @player_two.name = gets.chomp
+    @player_two.name = @player_two.name.capitalize
 
     @count = 0
     @game_on = true
   end
 
   def player_wins(name)
-    "#{name} wins"
+    "#{name} has won!, Game Over"
   end
 
   def validate_player_choice(choice)
@@ -61,11 +66,25 @@ class UserInterface
       puts
       @player_two.choice = gets.chomp
       if validate_player_choice(@player_two.choice)
+        check_two = true
         @arr.each do |i|
           i.length.times do |x|
-            i[x] = Integer(@player_two.choice) == i[x] ? 'O' : i[x]
+            if i[x].class == String
+              check_two = false     
+            end
+            if Integer(@player_two.choice) == i[x]
+              i[x] = 'O'
+              check_two = true
+              break
+            end
           end
         end
+
+        if check_two == false
+          puts 'Number chosen'
+        end
+        
+        check_two == false ? next : true
 
         @arr.each do |i|
           print i
@@ -78,4 +97,68 @@ class UserInterface
       end
     end
   end
+
+  def canvas_rules
+    user_info
+    while @game_on
+      print "#{@player_one.name} its your turn"
+      puts
+
+      @player_one.choice = gets.chomp
+      if validate_player_choice(@player_one.choice)
+        check = true
+        @arr.each do |i|
+          i.length.times do |x|
+            if i[x].class == String
+              check = false     
+            end
+            if Integer(@player_one.choice) == i[x]
+              i[x] = 'X'
+              check = true
+              break
+            end
+          end
+        end
+
+        if check == false
+          puts 'Number chosen'
+        end
+
+        check == false ? next : true
+
+        if player_win_cases('X')
+          @arr.each do |i|
+            print i
+            puts
+         end
+          player_win_state(@player_one.name)
+          return
+        end
+
+        @arr.each do |i|
+          print i
+          puts
+        end
+        @count += 1
+      elsif !validate_player_choice(@player_one.choice)
+        puts 'Enter a valid number'
+        next
+      end
+
+      if @count == 9
+        @game_on = false
+        break
+      end
+
+      play_second
+      if player_win_cases('O')
+        player_win_state(@player_two.name)
+        return
+      end
+    end
+    puts 'Its a draw'
+  end
 end
+
+ui = UserInterface.new
+ui.canvas_rules
