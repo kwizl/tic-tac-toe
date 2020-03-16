@@ -1,9 +1,8 @@
-#!/usr/bin/env ruby
 require './lib/player.rb'
 require './lib/canvas.rb'
 
 # validate and print player choice
-class UserInterface
+class UserInterfacec
   def user_info
     
     canvas = Canvas.new
@@ -70,6 +69,7 @@ class UserInterface
         check_two = true
         @arr.each do |i|
           i.length.times do |x|
+            # i[x] = Integer(@player_one.choice) == i[x] ? 'X' : i[x]
             if i[x].class == String
               check_two = false     
             end
