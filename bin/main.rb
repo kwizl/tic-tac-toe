@@ -109,14 +109,51 @@ class UserInterface
       @player_one.choice = gets.chomp
       if validate_player_choice(@player_one.choice)
         check = true
-        @arr.each do |i|
-          i.length.times do |x|
-            check = false if i[x].class == String
-
-            i[x] = 'X' if Integer(@player_one.choice) == i[x]
-            check = true
-            next if Integer(@player_one.choice) == i[x]
-          end
+        if Integer(@player_one.choice) == @arr[0][0]
+          @arr[0][0] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 1 && @arr[0][0].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[0][1]
+          @arr[0][1] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 2 && @arr[0][1].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[0][2]
+          @arr[0][2] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 3 && @arr[0][2].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[1][0]
+          @arr[1][0] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 4 && @arr[1][0].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[1][1]
+          @arr[1][1] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 5 && @arr[1][1].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[1][2]
+          @arr[1][2] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 6 && @arr[1][2].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[2][0]
+          @arr[2][0] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 7 && @arr[2][0].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[2][1]
+          @arr[2][1] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 8 && @arr[2][1].class == String
+          check = false
+        elsif Integer(@player_one.choice) == @arr[2][2]
+          @arr[2][2] = 'X'
+          check = true
+        elsif Integer(@player_one.choice) == 9 && @arr[2][2].class == String
+          check = false
         end
 
         puts 'Number chosen' if check == false
