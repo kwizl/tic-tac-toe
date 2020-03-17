@@ -66,25 +66,54 @@ class UserInterface
       @player_two.choice = gets.chomp
       if validate_player_choice(@player_two.choice)
         check_two = true
-        @arr.each do |i|
-          i.length.times do |x|
-            # if i[x].class == String
-            #   check_two = false
-            # end
-            # if Integer(@player_two.choice) == i[x]
-            #   i[x] = 'O'
-            #   check_two = true
-            #   break
-            # end
-            check_two = false if i[x].class == String
-
-            i[x] = 'O' if Integer(@player_two.choice) == i[x]
-            check_two = true
-            next if Integer(@player_two.choice) == i[x]
-          end
+        if Integer(@player_two.choice) == @arr[0][0]
+          @arr[0][0] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 1 && @arr[0][0].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[0][1]
+          @arr[0][1] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 2 && @arr[0][1].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[0][2]
+          @arr[0][2] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 3 && @arr[0][2].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[1][0]
+          @arr[1][0] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 4 && @arr[1][0].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[1][1]
+          @arr[1][1] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 5 && @arr[1][1].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[1][2]
+          @arr[1][2] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 6 && @arr[1][2].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[2][0]
+          @arr[2][0] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 7 && @arr[2][0].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[2][1]
+          @arr[2][1] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 8 && @arr[2][1].class == String
+          check_two = false
+        elsif Integer(@player_two.choice) == @arr[2][2]
+          @arr[2][2] = 'O'
+          check_two = true
+        elsif Integer(@player_two.choice) == 9 && @arr[2][2].class == String
+          check_two = false
         end
 
-        puts 'Number chosen' if check_two == false
+        puts 'Slot Occupied, Choose another slot' if check_two == false
 
         check_two == false ? next : true
 
@@ -156,7 +185,7 @@ class UserInterface
           check = false
         end
 
-        puts 'Number chosen' if check == false
+        puts 'Slot Occupied, Choose another slot' if check == false
 
         check == false ? next : true
 
