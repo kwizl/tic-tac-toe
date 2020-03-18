@@ -61,28 +61,31 @@ while game_on
     puts
   end
 
-  print "#{two_name} its your turn"
-  puts
+  game = true
+  while game
+    print "#{two_name} its your turn"
+    puts
+    player_two.choice = gets.chomp
+    if logic.validate_player_choice(player_two.choice)
+      logic.player_second(Integer(player_two.choice), arr)
+      puts 'Number chosen' if logic.check_two == false
+      logic.check_two == false ? next : true
 
-  player_two.choice = gets.chomp
-  if logic.validate_player_choice(player_two.choice)
-    logic.player_second(Integer(player_two.choice), arr)
-    puts 'Number chosen' if logic.check_two == false
-    logic.check_two == false ? next : true
-
-    if logic.player_win_cases('O', arr)
-      arr.each do |i|
-        print i
-        puts
+      if logic.player_win_cases('O', arr)
+        arr.each do |i|
+          print i
+          puts
+        end
+        logic.player_win_state
+        puts "#{two_name} Has Won! Game Over!"
+        return
       end
-      logic.player_win_state
-      puts "#{two_name} Has Won! Game Over!"
-      return
+      count += 1
+      game = false
+    elsif !logic.validate_player_choice(player_two.choice)
+      puts 'Enter a valid number'
+      next
     end
-    count += 1
-  elsif !logic.validate_player_choice(player_two.choice)
-    puts 'Enter a valid number'
-    next
   end
 
   arr.each do |i|
