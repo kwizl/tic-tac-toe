@@ -20,14 +20,9 @@ class UserInterface
     @player_one = Player.new
     @player_two = Player.new
 
-    print 'Enter name for Player One: '
-    @player_one.name = gets.chomp
-    @player_one.name = @player_one.name.capitalize
+    @player_one.name = 'Player One'
 
-    print 'Enter name for Player Two: '
-    @player_two.name = gets.chomp
-    @player_two.name = @player_two.name.capitalize
-
+    @player_two.name = 'Player Two'
     @count = 0
     @game_on = true
   end
