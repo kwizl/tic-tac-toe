@@ -9,14 +9,16 @@ logic = Logic.new
 player_one = Player.new
 player_two = Player.new
 
+current_player = player_one
+current_player_number = 0
+
 arr = canvas.array_canvas
 
 count = 0
 
 game_on = true
 
-one_name = 'Player One'
-two_name = 'Player Two'
+player_name = 'Player One'
 
 puts 'Tic Tac Toe Game!'
 
@@ -28,26 +30,27 @@ arr.each do |i|
 end
 
 while game_on
-  print "#{one_name} its your turn"
+  print "#{player_name} its your turn"
   puts
 
-  player_one.choice = gets.chomp
-  if logic.validate_player_choice(player_one.choice)
-    logic.player_first(Integer(player_one.choice), arr)
-    puts 'Number chosen' if logic.check_one == false
-    logic.check_one == false ? next : true
+  current_player.choice = gets.chomp
+  if logic.validate_player_choice(current_player.choice)
+    logic.player_both(Integer(current_player.choice), arr, current_player_number)
+    puts 'Number chosen' if logic.check_player[current_player_number] == false
+    logic.check_player[current_player_number] == false ? next : true
 
-    if logic.player_win_cases('X', arr)
+    win_cases_symbol = current_player == player_one ? 'X' : 'O'
+    if logic.player_win_cases(win_cases_symbol, arr)
       arr.each do |i|
         print i
         puts
       end
       logic.player_win_state
-      puts "#{one_name} Has Won! Game Over!"
+      puts "#{player_name} Has Won! Game Over!"
       return
     end
     count += 1
-  elsif !logic.validate_player_choice(player_one.choice)
+  elsif !logic.validate_player_choice(current_player.choice)
     puts 'Enter a valid number'
     next
   end
@@ -60,37 +63,8 @@ while game_on
     print i
     puts
   end
-
-  game = true
-  while game
-    print "#{two_name} its your turn"
-    puts
-    player_two.choice = gets.chomp
-    if logic.validate_player_choice(player_two.choice)
-      logic.player_second(Integer(player_two.choice), arr)
-      puts 'Number chosen' if logic.check_two == false
-      logic.check_two == false ? next : true
-
-      if logic.player_win_cases('O', arr)
-        arr.each do |i|
-          print i
-          puts
-        end
-        logic.player_win_state
-        puts "#{two_name} Has Won! Game Over!"
-        return
-      end
-      count += 1
-      game = false
-    elsif !logic.validate_player_choice(player_two.choice)
-      puts 'Enter a valid number'
-      next
-    end
-  end
-
-  arr.each do |i|
-    print i
-    puts
-  end
+  current_player_number = current_player == player_one ? 1 : 0
+  current_player = current_player == player_one ? player_two : player_one
+  player_name = current_player == player_one ? 'Player One' : 'Player Two'
 end
 puts 'Its a draw!'
