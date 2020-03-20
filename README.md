@@ -14,10 +14,8 @@ This is our implementation of the popular **Tic-tac-toe** game using ruby only. 
   - To win this game, a player should try to be the first to align himself/herself three-times consecutively on a straightline; either **vertically**, **horrizontally** or **diagonally** and at the same time always try to prevent his/her opponent from achieving same first.
 
 E.g A case of **Diagonal** WIN
-    ![image](https://user-images.githubusercontent.com/46686100/77190636-e6bfd300-6ad9-11ea-8f41-ee3756004142.png)
 
-
-  
+   ![image](https://user-images.githubusercontent.com/46686100/77190636-e6bfd300-6ad9-11ea-8f41-ee3756004142.png)  
 
   ### stalemate
   - If none of the players is able to occupy 3 consecutive slots before the 9 slots are exhausted, no player wins the round.
@@ -26,7 +24,7 @@ E.g A case of **Diagonal** WIN
   - At the start of the game, it prompts both players to input their names, however if no names are given, the system automatically assigns names(Player 1 or Player 2) to them.
   - A player is allowed to input Numerical values from **1 to 9 only** to occupy a slot on the game board
 
-    ![image](https://user-images.githubusercontent.com/46686100/77185244-6006f800-6ad1-11ea-8a23-6c3a580ec9c5.png)
+   ![image](https://user-images.githubusercontent.com/46686100/77185244-6006f800-6ad1-11ea-8a23-6c3a580ec9c5.png)
 
   - A player cannot choose a slot that has previously been chosen by them or the other player
     ENJOY THE GAME!!
