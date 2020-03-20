@@ -13,10 +13,11 @@ This is our implementation of the popular **Tic-tac-toe** game using ruby only. 
   ### Win Scenerios
   - To win this game, a player should try to be the first to align himself/herself three-times consecutively on a straightline; either **vertically**, **horrizontally** or **diagonally** and at the same time always try to prevent his/her opponent from achieving same first.
 
-  E.g A case of **Diagonal** WIN
-  
-  ![image](https://user-images.githubusercontent.com/46686100/77190636-e6bfd300-6ad9-11ea-8f41-ee3756004142.png)
+E.g A case of **Diagonal** WIN
+    ![image](https://user-images.githubusercontent.com/46686100/77190636-e6bfd300-6ad9-11ea-8f41-ee3756004142.png)
 
+
+  
 
   ### stalemate
   - If none of the players is able to occupy 3 consecutive slots before the 9 slots are exhausted, no player wins the round.
