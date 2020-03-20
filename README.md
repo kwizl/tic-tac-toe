@@ -30,6 +30,8 @@ This is our implementation of the popular **Tic-tac-toe** game using ruby only. 
 ## Built With
 
 - Ruby
+- Rubocop Linter
+- Stickler CI
 
 ## Authors
 
