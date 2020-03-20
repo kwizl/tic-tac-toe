@@ -15,8 +15,8 @@ This is our implementation of the popular **Tic-tac-toe** game using ruby only. 
 
   E.g A case of **Diagonal** WIN
   
-      ![image](https://user-images.githubusercontent.com/46686100/77183780-2b923c80-6acf-11ea-8213-89f7f33dd322.png)
-      
+    ![image](https://user-images.githubusercontent.com/46686100/77183780-2b923c80-6acf-11ea-8213-89f7f33dd322.png)
+
   ### stalemate
   - If none of the players is able to occupy 3 consecutive slots before the 9 slots are exhausted, no player wins the round.
 
