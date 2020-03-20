@@ -20,7 +20,7 @@ E.g A case of **Diagonal** WIN
   ### stalemate
   - If none of the players is able to occupy 3 consecutive slots before the 9 slots are exhausted, no player wins the round.
 
-  ### Do's && Dont's
+  ### Do's & Dont's
   - At the start of the game, it prompts both players to input their names, however if no names are given, the system automatically assigns names(Player 1 or Player 2) to them.
   - A player is allowed to input Numerical values from **1 to 9 only** to occupy a slot on the game board
 
