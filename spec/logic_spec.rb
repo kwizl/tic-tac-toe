@@ -41,49 +41,49 @@ RSpec.describe Logic do
   describe '#player_win_cases' do
     let(:player_labelz) { 'X' }
     let(:arrey) { [%w[X X X], [4, 5, 6], [7, 8, 9]] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [1, 2, 3] is met' do
       actual = subject.player_win_cases(player_labelz, arrey)
       expect(actual).to be(true)
     end
 
     let(:arrey_3) { [[1, 2, 3], %w[X X X], [7, 8, 9]] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [4, 5, 6] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_3)
       expect(actual).to be(true)
     end
 
     let(:arrey_4) { [[1, 2, 3], [4, 5, 6], %w[X X X]] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [7, 8, 9] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_4)
       expect(actual).to be(true)
     end
 
     let(:arrey_5) { [['X', 2, 3], ['X', 5, 6], ['X', 8, 9]] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [1, 4, 7] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_5)
       expect(actual).to be(true)
     end
 
-    let(:arrey_6) { [[1, 'X', 3], [1, 'X', 6], [7, 'X', 9]] }
-    it 'Should return TRUE if a win case is met' do
+    let(:arrey_6) { [[1, 'X', 3], [4, 'X', 6], [7, 'X', 9]] }
+    it 'Should return TRUE if a win case [2, 5, 8] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_6)
       expect(actual).to be(true)
     end
 
     let(:arrey_7) { [[1, 2, 'X'], [4, 5, 'X'], [7, 8, 'X']] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [3, 6, 9] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_7)
       expect(actual).to be(true)
     end
 
     let(:arrey_8) { [['X', 2, 3], [4, 'X', 6], [7, 8, 'X']] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [1, 5, 9] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_8)
       expect(actual).to be(true)
     end
 
     let(:arrey_9) { [[1, 2, 'X'], [4, 'X', 6], ['X', 8, 9]] }
-    it 'Should return TRUE if a win case is met' do
+    it 'Should return TRUE if a win case [3, 5, 7] is met' do
       actual = subject.player_win_cases(player_labelz, arrey_9)
       expect(actual).to be(true)
     end
