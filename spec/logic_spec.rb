@@ -89,8 +89,8 @@ RSpec.describe Logic do
     end
 
     let(:player_label_2) { 'X' }
-    let(:arrey_2) { [['X', 2, 'X'], [4, 5, 6], [7, 8, 9]] }
-    it 'Should return FALSE if a win case is NOT met' do
+    let(:arrey_2) { [%w[O X O], %w[O X X], %w[X O X]] }
+    it 'Should return FALSE if a DRAW condition is met' do
       actual = subject.player_win_cases(player_label_2, arrey_2)
       expect(actual).to be(false)
     end
