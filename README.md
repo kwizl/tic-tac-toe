@@ -41,7 +41,7 @@ E.g A case of **Diagonal** WIN
 
 - Github: [@kwizl](https://github.com/kwizl)
 - Twitter: [@NjoroKaris](https://twitter.com/NjoroKaris)
-- Linkedin: [martin njoroge](https://www.linkedin.com/in/martin-njoroge-098774110/)
+- Linkedin: [martin njoroge](https://www.linkedin.com/in/martin-kariuki-njoroge/)
 
 👤 **Alfred Ezaka**
 
