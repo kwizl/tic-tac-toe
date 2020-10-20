@@ -1,5 +1,5 @@
 # Tic-tac-toe
-This is our implementation of the popular **Tic-tac-toe** game using ruby only. This game can only be played on a Terminal console for now.
+It is an implementation of the popular **Tic-tac-toe** game using ruby only. To play, open your command prompt or terminal.
 
 ## How To Install This Game
 - First, in your **Terminal**/**Commandline** navigate to your desired location where you want this folder installed
@@ -8,25 +8,25 @@ This is our implementation of the popular **Tic-tac-toe** game using ruby only. 
 - To start the game, run this command `./bin/main.rb`
 
 ## How To Play The Game
-  We've made the game quite as interactive as possible, however for now, only one person can control inputing the choices of the two players.
+  We've made the game quite as interactive as possible, but for now, only one person can control inputting the choices of the two players.
   ### Rules
   ### Win Scenerios
-  - To win this game, a player should try to be the first to align himself/herself three-times consecutively on a straightline; either **vertically**, **horrizontally** or **diagonally** and at the same time always try to prevent his/her opponent from achieving same first.
+  - To win this game, a player should try to be the first to align himself/herself three-times consecutively on a straight line; either **vertically**, **horizontally** or **diagonally** and at the same time always try to prevent his/her opponent from achieving same first.
 
-E.g A case of **Diagonal** WIN
+### a case of **Diagonal** WIN
 
    ![image](https://user-images.githubusercontent.com/46686100/77190636-e6bfd300-6ad9-11ea-8f41-ee3756004142.png)  
 
   ### stalemate
-  - If none of the players is able to occupy 3 consecutive slots before the 9 slots are exhausted, no player wins the round.
+  - If none of the players can occupy three consecutive boxes before the nine boxes are exhausted, no player wins the round.
 
   ### Do's & Dont's
-  - At the start of the game, it prompts both players to input their names, however if no names are given, the system automatically assigns names(Player 1 or Player 2) to them.
+  - At the start of the game, it prompts both players to input their names. If there are no names, default names are assigned(Player 1 or Player 2) to them.
   - A player is allowed to input Numerical values from **1 to 9 only** to occupy a slot on the game board
 
    ![image](https://user-images.githubusercontent.com/46686100/77185244-6006f800-6ad1-11ea-8a23-6c3a580ec9c5.png)
 
-  - A player cannot choose a slot that has previously been chosen by them or the other player
+  - A player cannot choose a chosen slot.
     ENJOY THE GAME!!
 
 ## Built With
@@ -48,8 +48,3 @@ E.g A case of **Diagonal** WIN
 - Github: [@codecell](https://github.com/codecell)
 - Twitter: [@the_codecell](https://twitter.com/the_codecell) 
 - Linkedin: [ezaka alfred](https://www.linkedin.com/in/alfrednoble/)
-
-
-## Show your support
-
-Give a ⭐️ if you like this project!
